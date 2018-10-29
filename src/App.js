@@ -21,7 +21,7 @@ class App extends PureComponent {
         this.searchVideos("");
     }
     searchVideos(searchTerm){
-        axios.get('http://localhost:3001/videos', {
+        axios.get('https://smaller-bomb.herokuapp.com/videos', {
             params: {
                 perPage: 12,
                 searchTerm
