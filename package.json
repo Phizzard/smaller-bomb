@@ -26,7 +26,7 @@
     ],
     "verbose": false,
     "env": {
-      "ALLOW_ACCESS": "http://localhost:3000"
+      "ALLOW_ACCESS": "https://smaller-bomb.herokuapp.com"
     }
   },
   "eslintConfig": {
