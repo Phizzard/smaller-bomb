@@ -4,30 +4,16 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "express": "^4.16.4",
-    "giantbomb": "^2.0.2",
     "lodash": "^4.17.11",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-scripts": "2.0.5"
   },
   "scripts": {
-    "start": "ALLOW_ACCESS=https://smaller-bomb.herokuapp.com react-scripts start && node server.js",
-    "api": "nodemon server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "nodemonConfig":{
-    "ignore": [
-      ".git",
-      "node_modules/*",
-      "public/*"
-    ],
-    "verbose": false,
-    "env": {
-      "ALLOW_ACCESS": "http://localhost:3000"
-    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,8 +23,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "nodemon": "^1.18.5"
-  }
+  ]
 }
