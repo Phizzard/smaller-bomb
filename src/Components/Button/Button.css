@@ -1,0 +1,16 @@
+.Button{
+    background-color: #FFF;
+    border-radius: 2rem;
+    border: none;
+    padding: .6rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.Button:hover{
+    cursor: pointer;
+    background-color: rgb(221, 221, 221);
+}

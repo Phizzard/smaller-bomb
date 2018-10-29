@@ -1,0 +1,9 @@
+.Video{
+
+}
+
+.Video iframe{
+    width: 100%;
+    height: 60vh;
+    border: none;
+}

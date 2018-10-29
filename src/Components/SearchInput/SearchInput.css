@@ -1,0 +1,13 @@
+.SearchInput{
+    display: flex;
+}
+
+.SearchInput input{
+    flex-grow: 1;
+    font-size: 2rem;
+    background-color: #000;
+    color: #FFF;
+    border: none;
+    outline: none;
+    padding: .5rem;
+}

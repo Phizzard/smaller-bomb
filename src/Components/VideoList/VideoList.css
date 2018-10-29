@@ -1,0 +1,53 @@
+.VideoList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.VideoListItem{
+    margin: 1rem;
+    width: 40%;
+    color: #FFF;
+    text-align: left;
+}
+
+.VideoListItem:hover{
+    cursor: pointer;
+}
+
+.VideoListItemImage{
+    position: relative;
+}
+
+.VideoListItem img{
+    height: auto;
+    width: 100%;
+}
+.VideoListItem .VideoListItemBody p{
+    margin: 0 0 .1rem 0;
+}
+
+.VideoListItem .VideoListItemBody .VideoListItemBodyType {
+    color: gray;
+}
+.VideoListItem .VideoListItemLength{
+    font-size: .8rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: #191919;
+    padding: .25rem;
+    border-radius: .25rem;
+}
+
+@media (min-width: 1024px){
+    .VideoListItem{
+        width: 27%;
+    }
+}
+@media (min-width: 1440px){
+    .VideoListItem{
+        width: 21%;
+    }
+}
