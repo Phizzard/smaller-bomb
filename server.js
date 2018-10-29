@@ -5,7 +5,7 @@ const port = 3001;
 const GB_API_KEY = '09dc277eefa643ac45893ff6e2812e12a0335fd6';
 const gb = giantbomb(GB_API_KEY);
 app.use((req, res, next)=>{
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', process.env.ALLOW_ACCESS);
     next();
 });
 
