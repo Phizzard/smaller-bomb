@@ -13,8 +13,17 @@ const VideoListItem = ({
     date.setSeconds(length);
     length = date.toISOString().substring(11,19);
 
+    const handleOnVideoClick = () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+        onVideoClick(embed_player);
+    };
+
     return(
-        <div className="VideoListItem" onClick={ () => onVideoClick(embed_player)}>
+        <div className="VideoListItem" onClick={handleOnVideoClick}>
             <div className="VideoListItemImage">
                 <img src={thumbnail} alt={name} />
                 <span className="VideoListItemLength">{length}</span>
