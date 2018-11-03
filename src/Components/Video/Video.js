@@ -9,7 +9,7 @@ const Video = ({
     width
 }) => (
     <div className="Video">
-        <iframe title={title} height={height} width={width} src={src}></iframe>
+        <iframe title={title} height={height} width={width} src={src} allowFullScreen></iframe>
     </div>
 );
 
