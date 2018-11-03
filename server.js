@@ -36,4 +36,20 @@ app.get('/videos', (req, res)=>{
     });
 });
 
+app.get('/search/videos', (req, res)=>{
+    const options = {
+        page: req.query.page || 1,
+        perPage: req.query.perPage || 12
+    };
+
+    gb.videos.search(req.query.searchTerm, options, (err, response, json)=>{
+        if(err){
+            res.send(err);
+        } else {
+            res.send(json);
+        }
+        
+    });
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

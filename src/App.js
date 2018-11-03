@@ -4,6 +4,7 @@ import SearchInput from './Components/SearchInput';
 import Video from './Components/Video';
 import VideoList from './Components/VideoList';
 import axios from 'axios';
+import { PacmanLoader } from 'react-spinners';
 import './App.css';
 
 class App extends PureComponent {
@@ -14,16 +15,15 @@ class App extends PureComponent {
             videos: [],
             selectedVideo: null
         };
-
         
     }
     componentDidMount(){
         this.searchVideos("");
     }
     searchVideos(searchTerm){
-        axios.get(`${process.env.REACT_APP_API_URL}/videos`, {
+        axios.get(`${process.env.REACT_APP_API_URL}/search/videos`, {
             params: {
-                perPage: 12,
+                perPage: 16,
                 searchTerm
             }
         }).then((videosResponse)=>{
@@ -45,7 +45,15 @@ class App extends PureComponent {
                         <VideoList videos={this.state.videos} onVideoClick={selectedVideo => this.setState({selectedVideo}) }/>
                     </Fragment>
                 ) : (
-                    <h2>Loading...</h2>
+                    <div className="Loader">
+                        <PacmanLoader
+                            loading={true}
+                            size={40}
+                            sizeUnit={"px"}
+                            color={'#fff'}
+                        />
+                    </div>
+                    
                 )}
             </div>
         );
