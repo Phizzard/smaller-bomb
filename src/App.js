@@ -27,7 +27,6 @@ class App extends PureComponent {
                 searchTerm
             }
         }).then((videosResponse)=>{
-            console.log(videosResponse.data);
             this.setState({
                 videos: videosResponse.data.results,
                 selectedVideo: this.state.selectedVideo ? this.state.selectedVideo : videosResponse.data.results[0].embed_player
