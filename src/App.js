@@ -13,7 +13,8 @@ class App extends PureComponent {
 
         this.state = {
             videos: [],
-            selectedVideo: null
+            selectedVideo: null,
+            isLoading: true
         };
         
     }
@@ -21,17 +22,22 @@ class App extends PureComponent {
         this.searchVideos("");
     }
     searchVideos(searchTerm){
-        axios.get(`${process.env.REACT_APP_API_URL}/search/videos`, {
-            params: {
-                perPage: 16,
-                searchTerm
-            }
-        }).then((videosResponse)=>{
-            this.setState({
-                videos: videosResponse.data.results,
-                selectedVideo: this.state.selectedVideo ? this.state.selectedVideo : videosResponse.data.results[0].embed_player
-            });
-        }).catch(err => console.error(err));
+        this.setState({
+            isLoading: true
+        }, () => {
+            axios.get(`${process.env.REACT_APP_API_URL}/search/videos`, {
+                params: {
+                    perPage: 16,
+                    searchTerm
+                }
+            }).then((videosResponse)=>{
+                this.setState({
+                    videos: videosResponse.data.results,
+                    selectedVideo: this.state.selectedVideo ? this.state.selectedVideo : videosResponse.data.results[0].embed_player,
+                    isLoading: false
+                });
+            }).catch(err => console.error(err));
+        });
     }
     render() {
         return (
@@ -40,11 +46,7 @@ class App extends PureComponent {
                 {this.state.selectedVideo && (
                     <Video title={this.state.selectedVideo} src={this.state.selectedVideo} />
                 )}
-                {this.state.videos.length > 0 ? (
-                    <Fragment>
-                        <VideoList videos={this.state.videos} onVideoClick={selectedVideo => this.setState({selectedVideo}) }/>
-                    </Fragment>
-                ) : (
+                {this.state.isLoading ? (
                     <div className="Loader">
                         <PacmanLoader
                             loading={true}
@@ -53,7 +55,14 @@ class App extends PureComponent {
                             color={'#fff'}
                         />
                     </div>
-                    
+                ) : (
+                    this.state.videos.length > 0 ? (
+                        <Fragment>
+                            <VideoList videos={this.state.videos} selectedVideo={this.state.selectedVideo} onVideoClick={selectedVideo => this.setState({selectedVideo}) }/>
+                        </Fragment>
+                    ) : (
+                        <h2 className="Message">No Videos Duder...</h2>
+                    )
                 )}
             </div>
         );

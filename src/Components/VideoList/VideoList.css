@@ -16,6 +16,21 @@
     cursor: pointer;
 }
 
+.VideoListItem.Selected .VideoListItemImage::after{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    top: 0;
+    align-content: center;
+    display: flex;
+    font-size: 80px;
+    justify-content: center;
+    color: #FFF;
+    background-color: rgba(0,0,0,0.6);
+    content: url("./play_white.png");
+}
+
 .VideoListItemImage{
     position: relative;
 }
@@ -39,6 +54,7 @@
     background-color: #191919;
     padding: .25rem;
     border-radius: .25rem;
+    z-index: 1;
 }
 
 @media (min-width: 540px){

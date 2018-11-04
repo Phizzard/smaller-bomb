@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, number, func } from 'prop-types';
+import { string, number, bool, func } from 'prop-types';
 
 const VideoListItem = ({
     name,
@@ -7,6 +7,7 @@ const VideoListItem = ({
     thumbnail,
     length,
     embed_player,
+    isSelected,
     onVideoClick
 }) => {
     let date = new Date(null);
@@ -23,7 +24,7 @@ const VideoListItem = ({
     };
 
     return(
-        <div className="VideoListItem" onClick={handleOnVideoClick}>
+        <div className={`VideoListItem ${isSelected ? "Selected" : ""}`} onClick={handleOnVideoClick}>
             <div className="VideoListItemImage">
                 <img src={thumbnail} alt={name} />
                 <span className="VideoListItemLength">{length}</span>
@@ -41,6 +42,7 @@ VideoListItem.propTypes = {
     type: string,
     thumbnail: string,
     lengh: number,
+    isSelected: bool,
     onVideoClick: func
 };
 
